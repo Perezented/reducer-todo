@@ -23,4 +23,4 @@ const AddTodo = ({ dispatch }) => {
         </div>
     );
 };
-export default connect()(TodoSearch);
+export default connect()(AddTodo);

@@ -1,7 +1,7 @@
 let nextId = 0;
 
 //Action => Add a todo or remove a todo
-export const addTodo = () => {
+export const addTodo = (text) => {
     return {
         type: 'ADD_TODO',
         id: nextId++,
