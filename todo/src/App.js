@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import TodoSearch from './components/TodoSearch';
+import AddTodo from '../containers/AddTodo';
+import VisibleTodoList from '../containers/VisibleTodoList';
 
 function App() {
     return (
@@ -8,7 +10,9 @@ function App() {
             <header className="App-header">
                 <h1>Todo React App</h1>
             </header>
-            <TodoSearch />
+            <section>
+                <TodoSearch />
+            </section>
         </div>
     );
 }
