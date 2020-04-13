@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import TodoSearch from './components/TodoSearch';
-import AddTodo from '../containers/AddTodo';
+import TodoSearch from './containers/TodoSearch';
+import Footer from './components/Footer';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
             </header>
             <section>
                 <TodoSearch />
+                <VisibleTodoList />
+                <Footer />
             </section>
         </div>
     );
