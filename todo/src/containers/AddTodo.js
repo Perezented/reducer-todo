@@ -17,10 +17,11 @@ const AddTodo = ({ dispatch }) => {
                     input.value = '';
                 }}
             >
-                <input type="text" ref={(node) => (input = node)} />
+                <input ref={(node) => (input = node)} />
                 <button type="submit">Add Todo</button>
             </form>
         </div>
     );
 };
+
 export default connect()(AddTodo);
