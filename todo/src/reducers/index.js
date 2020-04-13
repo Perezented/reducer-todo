@@ -1,17 +1,21 @@
 //starting off with...
-const initialState = {
+export const initialState = {
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589,
 };
 
 //reducer function
-function reducer(state, action) {
+export function reducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TODO':
-            return { ...state, state.append(addTodo) };
+            return { ...state, {
+                id: action.id, 
+                    text: action.text,
+                        completed: false,
+            } };
         case 'REMOVE_TODO':
-            return { ...state, state.remove(removeTodo) };
+            return { ...state.remove(removeTodo) };
         default:
             return initialState;
     }
