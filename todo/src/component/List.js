@@ -2,8 +2,8 @@ import React, { setState } from 'react';
 import { connect } from 'react-redux';
 import ListItem from './ListItem';
 
-import { addTodo } from '../actions';
-
+import { addTodo, toggleTodo } from '../actions';
+import AddTodo from './AddTodo';
 const List = (props) => {
     const state = {
         newTodo: '',
@@ -13,18 +13,19 @@ const List = (props) => {
         e.preventDefault();
         props.addTodo(state.newTodo);
     };
-    const handleChanges = (e) => setState({ newTodo: e.target.value });
-
+    // const handleChanges = (e) => setState({ newTodo: e.target.value });
+    let input;
     return (
         <div>
             <h2>Todo: </h2>
             {props.todoList.map((value) => (
-                <ListItem item={value.item} key={value.id} />
+                <ListItem
+                    item={value.item}
+                    key={value.id}
+                    onClick={() => toggleTodo(value.id)}
+                />
             ))}
-            <div>
-                <input onChange={handleChanges} value={state.newTodo} />
-                <button onClick={addTodo}>Add Todo</button>
-            </div>
+            <AddTodo />
         </div>
     );
 };
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => {
         todoList: state.todoList,
     };
 };
-export default connect(mapStateToProps, { addTodo })(List);
+export default connect(mapStateToProps, { addTodo, toggleTodo })(List);

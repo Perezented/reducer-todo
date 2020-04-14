@@ -1,3 +1,10 @@
 import React from 'react';
-
-export default (item) => <h4>{item.item}</h4>;
+import { toggleTodo } from '../actions/';
+export default (item) => (
+    <h4
+        onClick={() => toggleTodo(item.id)}
+        style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
+    >
+        {item.item}
+    </h4>
+);
