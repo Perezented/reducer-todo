@@ -1,24 +1,38 @@
-import React, { useReducer } from 'react';
-import { reducer, initialState } from '../reducer/index';
+import React from 'react';
 
-function TodoList() {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    return (
-        <>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                }}
-            >
-                <button
-                    type="submit"
-                    onClick={() => dispatch({ type: 'ADD_TODO' })}
-                >
-                    Add Todo
-                </button>
-            </form>
-            <ul>{state.item}</ul>
-        </>
-    );
+class TodoList extends React.Component {
+    state = {
+        newTodo: '',
+    };
+    addTodo = (e) => {
+        e.preventDefault();
+        this.props.addTodo(this.state.newTodo);
+    };
+    handleChanges = (e) => this.setState({ newTodo: e.target.value });
+
+    render() {
+        return (
+            <section>
+                <div>
+                    <h2>Todo: </h2>
+                    {console.log(this.props)}
+                </div>
+                <div>
+                    <input
+                        onChange={this.handleChanges}
+                        value={this.state.newTodo}
+                    />
+                    <button onClick={this.addTodo}>Add Todo</button>
+                </div>
+            </section>
+        );
+    }
 }
-export default TodoList;
+
+const mapStateToProps = (state) => {
+    return {
+        todoList: state.todoList,
+    };
+};
+
+export default connect(mapStateToProps, { addTodo })(TodoList);
