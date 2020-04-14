@@ -18,7 +18,7 @@ const List = (props) => {
     return (
         <div>
             <h2>Todo: </h2>
-            {props.todoList.map((value) => (
+            {props.props.todoList.map((value) => (
                 <ListItem
                     item={value.item}
                     key={value.id}
@@ -31,7 +31,7 @@ const List = (props) => {
 };
 const mapStateToProps = (state) => {
     return {
-        todoList: state.todoList,
+        props: state,
     };
 };
 export default connect(mapStateToProps, { addTodo, toggleTodo })(List);
