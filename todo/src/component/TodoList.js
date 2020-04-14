@@ -1,38 +1,38 @@
-import React from 'react';
+// import React from 'react';
 
-class TodoList extends React.Component {
-    state = {
-        newTodo: '',
-    };
-    addTodo = (e) => {
-        e.preventDefault();
-        this.props.addTodo(this.state.newTodo);
-    };
-    handleChanges = (e) => this.setState({ newTodo: e.target.value });
+// class TodoList extends React.Component {
+//     state = {
+//         newTodo: '',
+//     };
+//     addTodo = (e) => {
+//         e.preventDefault();
+//         this.props.addTodo(this.state.newTodo);
+//     };
+//     handleChanges = (e) => this.setState({ newTodo: e.target.value });
 
-    render() {
-        return (
-            <section>
-                <div>
-                    <h2>Todo: </h2>
-                    {console.log(this.props)}
-                </div>
-                <div>
-                    <input
-                        onChange={this.handleChanges}
-                        value={this.state.newTodo}
-                    />
-                    <button onClick={this.addTodo}>Add Todo</button>
-                </div>
-            </section>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <section>
+//                 <div>
+//                     <h2>Todo: </h2>
+//                     {console.log(this.props)}
+//                 </div>
+//                 <div>
+//                     <input
+//                         onChange={this.handleChanges}
+//                         value={this.state.newTodo}
+//                     />
+//                     <button onClick={this.addTodo}>Add Todo</button>
+//                 </div>
+//             </section>
+//         );
+//     }
+// }
 
-const mapStateToProps = (state) => {
-    return {
-        todoList: state.todoList,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         todoList: state.todoList,
+//     };
+// };
 
-export default connect(mapStateToProps, { addTodo })(TodoList);
+// export default connect(mapStateToProps, { addTodo })(TodoList);

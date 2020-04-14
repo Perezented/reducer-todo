@@ -4,6 +4,5 @@ export const addTodo = (item) => {
     console.log(item);
     return {
         type: ADD_TODO,
-        payload: item,
     };
 };

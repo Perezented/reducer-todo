@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import TodoList from './component/TodoList';
+import List from './component/List';
 
 function App() {
     return (
         <div className="App">
             <h1>Redux Todo List</h1>
-            <TodoList />
+            <List />
         </div>
     );
 }
