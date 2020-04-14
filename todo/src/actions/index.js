@@ -1,11 +1,11 @@
 let nextId = 0;
 
 //Action => Add a todo or remove a todo
-export const addTodo = (text) => {
+export const addTodo = (item) => {
     return {
         type: 'ADD_TODO',
         id: nextId++,
-        text,
+        text: item,
     };
 };
 export const setVisibilityFilter = (filter) => ({
