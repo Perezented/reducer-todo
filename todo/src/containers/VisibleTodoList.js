@@ -12,7 +12,7 @@ const getVisibleTodos = (todos, filter) => {
         case VisibilityFilter.SHOW_ACTIVE:
             return todos.filter((todos) => !todos.completed);
         default:
-            return new Error('Unknown filter: ' + filter);
+            return todos;
     }
 };
 

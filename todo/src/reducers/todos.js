@@ -5,21 +5,6 @@ export const initialState = {
     id: 3892987589,
 };
 
-//reducer function
-// export function reducer(state = [], action) {
-//     switch (action.type) {
-//         case 'ADD_TODO':
-//             return { ...state, {
-//                 id: action.id,
-//                     text: action.text,
-//                         completed: false,
-//             } };
-//         case 'REMOVE_TODO':
-//             return { ...state.remove(removeTodo) };
-//         default:
-//             return initialState;
-//     }
-// }
 const todos = (
     state = [
         {
@@ -36,7 +21,7 @@ const todos = (
                 ...state,
                 {
                     id: action.id,
-                    text: action.text,
+                    item: action.text,
                     completed: false,
                 },
             ];
