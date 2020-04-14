@@ -20,7 +20,16 @@ export const initialState = {
 //             return initialState;
 //     }
 // }
-const todos = (state = [], action) => {
+const todos = (
+    state = [
+        {
+            item: 'Learn about reducers',
+            completed: false,
+            id: 3892987589,
+        },
+    ],
+    action
+) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
