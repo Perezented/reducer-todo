@@ -7,18 +7,6 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import TodoList from './component/TodoList';
 
-function reducer() {
-    return {
-        todoList: [
-            {
-                item: 'Learn about reducers',
-                completed: false,
-                id: 3892987589,
-            },
-        ],
-    };
-}
-
 const store = createStore(reducer);
 ReactDOM.render(
     <React.StrictMode>
