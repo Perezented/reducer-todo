@@ -36,24 +36,22 @@ const todoReducer = (state = initialState, action) => {
             return state;
     }
 };
-const [todos, dispatch] = React.useReducer(todoReducer, initialState);
+//useReducer
+const [state, dipsatch] = useReducer(reducer, initalState);
 
-//Adding a todo
-
+//actions
 let nextId = 0;
-const addTodo = (item) => {
-    return {
-        type: 'ADD_TODO',
-        id: nextId++,
-        text: item,
-    };
-};
-//Toggle a todo when clicked
-
 const toggleTodo = (id) => ({
-    type: 'TOGGLE_TODO',
-    id,
+    dipsatch({ type: 'TOGGLE_TODO'})
 });
+const addTodo = (item) => {
+    const newTodo = {
+        name: item,
+        completed: false,
+        id: nextId++
+    }
+    dispatchEvent({ type: 'ADD_TODO', payload: newTodo })
+};
 
 //The actual todo item
 
