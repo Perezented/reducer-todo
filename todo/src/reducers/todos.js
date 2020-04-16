@@ -1,0 +1,38 @@
+//starting off with...
+export const initialState = {
+    item: 'Learn about reducers',
+    completed: false,
+    id: 3892987589,
+};
+
+const todos = (
+    state = [
+        {
+            item: 'Learn about reducers',
+            completed: false,
+            id: 3892987589,
+        },
+    ],
+    action
+) => {
+    switch (action.type) {
+        case 'ADD_TODO':
+            return [
+                ...state,
+                {
+                    id: action.id,
+                    item: action.text,
+                    completed: false,
+                },
+            ];
+        case 'TOGGLE_TODO':
+            return state.map((todo) =>
+                todo.id === action.id
+                    ? { ...todo, completed: !todo.completed }
+                    : todo
+            );
+        default:
+            return state;
+    }
+};
+export default todos;
