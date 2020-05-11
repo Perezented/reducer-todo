@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+    console.log('TodoForm:', props.props);
     const [addInput, setAddInput] = useState('');
 
     const handleChanges = (e) => {
@@ -31,7 +32,10 @@ const TodoForm = () => {
             />
             <button
                 onClick={() => {
-                    // dispatch({ type: 'ADD_TODO', payload: newTodo });
+                    props.props.dispatch({
+                        type: 'ADD_TODO',
+                        payload: newTodo,
+                    });
                 }}
             >
                 Add Todo
