@@ -1,5 +1,4 @@
-import React, { useReducer } from 'react';
-import { todoReducer, initialState } from '../reducers/index';
+import React from 'react';
 
 const TodoList = (props) => {
     console.log('yyyyyoooooooo kiiiiiddddd', props);
@@ -7,7 +6,15 @@ const TodoList = (props) => {
         <section>
             {props.state.todos.map((todoItem) => {
                 return (
-                    <div key={todoItem.id}>
+                    <div
+                        key={todoItem.id}
+                        onClick={() => {
+                            props.dispatch({
+                                type: 'TOGGLE_TODO',
+                                payload: todoItem.id,
+                            });
+                        }}
+                    >
                         <h2>{todoItem.item}</h2>
                     </div>
                 );
