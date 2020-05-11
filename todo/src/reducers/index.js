@@ -1,3 +1,4 @@
+import { newTodo } from '../components/TodoForm';
 export const initialState = [
     {
         item: 'Learn about reducers',
@@ -6,11 +7,6 @@ export const initialState = [
     },
 ];
 
-const newTodo = {
-    item: 'testItem',
-    completed: false,
-    id: Date.now(),
-};
 export const todoReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TODO':

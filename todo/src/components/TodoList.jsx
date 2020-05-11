@@ -8,11 +8,9 @@ const TodoList = () => {
         <section>
             {state.map((todoItem) => {
                 return (
-                    <>
-                        <div>
-                            <h2>{todoItem.item}</h2>
-                        </div>
-                    </>
+                    <div key={todoItem.id}>
+                        <h2>{todoItem.item}</h2>
+                    </div>
                 );
             })}
         </section>
