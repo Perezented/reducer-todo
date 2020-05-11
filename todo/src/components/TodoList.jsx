@@ -3,11 +3,18 @@ import { todoReducer, initialState } from '../reducers/index';
 
 const TodoList = () => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
+    console.log(state);
     return (
         <section>
-            <h3>This is the todoList area of the app</h3>
-            <p>another line</p>
-            <p>another line</p>
+            {state.map((todoItem) => {
+                return (
+                    <>
+                        <div>
+                            <h2>{todoItem.item}</h2>
+                        </div>
+                    </>
+                );
+            })}
         </section>
     );
 };
