@@ -6,6 +6,19 @@ export const initialState = [
     },
 ];
 
-export const todoReducer = (state) => {
-    return state;
+const newTodo = {
+    item: 'testItem',
+    completed: false,
+    id: Date.now(),
+};
+export const todoReducer = (state, action) => {
+    switch (action.type) {
+        case 'ADD_TODO':
+            return {
+                ...state,
+                newTodo,
+            };
+        default:
+            return state;
+    }
 };
