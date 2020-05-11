@@ -1,9 +1,7 @@
-import React, { useReducer, useState } from 'react';
-import { todoReducer, initialState } from '../reducers/index';
+import React, { useState } from 'react';
 
 const TodoForm = () => {
     const [addInput, setAddInput] = useState('');
-    const [state, dispatch] = useReducer(todoReducer, initialState);
 
     const handleChanges = (e) => {
         setAddInput(e.target.value);
@@ -15,7 +13,7 @@ const TodoForm = () => {
         id: Date.now(),
     };
     console.log(addInput);
-    console.log(state);
+    // console.log(state);
     return (
         <form
             onSubmit={(e) => {
@@ -33,7 +31,7 @@ const TodoForm = () => {
             />
             <button
                 onClick={() => {
-                    dispatch({ type: 'ADD_TODO', payload: newTodo });
+                    // dispatch({ type: 'ADD_TODO', payload: newTodo });
                 }}
             >
                 Add Todo
