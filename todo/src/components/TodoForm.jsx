@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-
-export const newTodo = {
-    item: 'testItem',
-    completed: false,
-    id: Date.now(),
-};
+import React, { useReducer, useState } from 'react';
+import { todoReducer, initialState } from '../reducers/index';
 
 const TodoForm = () => {
     const [addInput, setAddInput] = useState('');
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+
     const handleChanges = (e) => {
         setAddInput(e.target.value);
     };
+    console.log(addInput);
+    console.log(state);
     return (
-        <form>
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+            }}
+        >
             <label htmlFor="add" name="add">
                 Add a Todo
             </label>
@@ -22,7 +25,13 @@ const TodoForm = () => {
                 value={addInput}
                 onChange={handleChanges}
             />
-            <button>Add Todo</button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'ADD_TODO', payload: '' });
+                }}
+            >
+                Add Todo
+            </button>
         </form>
     );
 };
