@@ -8,6 +8,12 @@ const TodoForm = () => {
     const handleChanges = (e) => {
         setAddInput(e.target.value);
     };
+
+    const newTodo = {
+        item: addInput,
+        completed: false,
+        id: Date.now(),
+    };
     console.log(addInput);
     console.log(state);
     return (
@@ -27,7 +33,7 @@ const TodoForm = () => {
             />
             <button
                 onClick={() => {
-                    dispatch({ type: 'ADD_TODO', payload: '' });
+                    dispatch({ type: 'ADD_TODO', payload: newTodo });
                 }}
             >
                 Add Todo
