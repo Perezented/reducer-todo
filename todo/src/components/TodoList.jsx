@@ -1,9 +1,11 @@
 import React from 'react';
+import './TodoList.css';
 
 const TodoList = (props) => {
     console.log('yyyyyoooooooo kiiiiiddddd', props);
     return (
-        <section>
+        <section className="section">
+            <p>(Click on a todo to mark it complete.)</p>
             {props.state.todos.map((todoItem) => {
                 return (
                     <div
@@ -15,7 +17,15 @@ const TodoList = (props) => {
                             });
                         }}
                     >
-                        <h2>{todoItem.item}</h2>
+                        <h2
+                            style={{
+                                textDecoration: todoItem.completed
+                                    ? 'line-through'
+                                    : 'none',
+                            }}
+                        >
+                            {todoItem.item}
+                        </h2>
                     </div>
                 );
             })}

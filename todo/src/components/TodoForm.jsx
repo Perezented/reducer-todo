@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, setState } from 'react';
 
 const TodoForm = (props) => {
     console.log('TodoForm:', props.props);
-    const [addInput, setAddInput] = useState('');
+    let [addInput, setAddInput] = useState('');
 
     const handleChanges = (e) => {
         setAddInput(e.target.value);
@@ -22,7 +22,7 @@ const TodoForm = (props) => {
             }}
         >
             <label htmlFor="add" name="add">
-                Add a Todo
+                Add a Todo:
             </label>
             <input
                 type="text"
@@ -40,6 +40,14 @@ const TodoForm = (props) => {
             >
                 Add Todo
             </button>
+            <button
+                onClick={() => {
+                    props.props.dispatch({ type: 'CLEAR_COMPLETED' });
+                }}
+            >
+                Clear Completed
+            </button>
+            <br />
         </form>
     );
 };

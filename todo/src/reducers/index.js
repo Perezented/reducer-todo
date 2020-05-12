@@ -16,6 +16,15 @@ export const initialState = {
 export const todoReducer = (state = initialState, action) => {
     console.log('todoReducer state:', state);
     switch (action.type) {
+        case 'CLEAR_COMPLETED':
+            return {
+                ...state,
+                todos: state.todos.map((todo) => {
+                    if (todo.completed) {
+                        return { ...(todo - todo.completed) };
+                    } else return todo;
+                }),
+            };
         case 'TOGGLE_TODO':
             return {
                 ...state,
